@@ -1,9 +1,18 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <h1>New post</h1>
+<div class="container mt-5" style="max-width: 600px; background-color: #f8f9fa; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+    <h1 class="text-center mb-4">게시물</h1>
     <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
+        <div style="margin-bottom: 20px;">
+            <label for="id_title" style="font-size: 1.2em;">제목</label>
+            {{ form.title }}  <!-- Bootstrap 스타일 없이 기본 스타일 사용 -->
+        </div>
+        <div style="margin-bottom: 20px;">
+            <label for="id_text" style="font-size: 1.2em;">내용</label>
+            {{ form.text }}  <!-- Bootstrap 스타일 없이 기본 스타일 사용 -->
+        </div>
+        <button type="submit" style="width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 5px; font-size: 1.2em;">저장</button>
     </form>
+</div>
 {% endblock %}

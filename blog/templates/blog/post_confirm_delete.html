@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="container mt-5" style="max-width: 600px; background-color: #f8f9fa; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+    <h2 class="text-center mb-4">게시물 삭제 확인</h2>
+    <p class="text-center">정말 "{{ post.title }}" 게시물을 삭제하시겠습니까?</p>
+    <form method="POST" class="text-center">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger btn-lg" style="margin-right: 10px;">삭제</button>
+        <a href="{% url 'post_detail' post.pk %}" class="btn btn-secondary btn-lg">취소</a>
+    </form>
+</div>
+{% endblock %}
